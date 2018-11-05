@@ -22,11 +22,14 @@ body {
 }
 
 #app {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  font-size: 1.5em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: rgba(0, 0, 0, 0.7);
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 23px;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+p {
+  text-indent: 30px;
 }
 
 </style>

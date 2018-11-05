@@ -15,7 +15,7 @@
           <md-list-item v-for="post in posts" :key="post.id" @click="curr_index = post.id">
 
             <md-avatar>
-              <img :src="image" alt="Cat"/>
+              <img :src="require('../assets/'+post.img)" :alt="post.alt"/>
             </md-avatar>
 
             <div class="md-list-item-text" :class="{ active : post.id === curr_index }">
@@ -44,13 +44,12 @@
 
 <script>
 import posts from '../assets/posts.json'
-import image from '../assets/millennial.png'
+
 export default {
   data() {
     return {
       curr_index: 0,
-      posts,
-      image
+      posts
     }
   },
 
