@@ -2,11 +2,14 @@
   <div class="blog">
     <md-divider class="md-full"></md-divider>
     <md-app>
-      <!-- <md-app-toolbar>
-        <span class="md-title">My Title</span>
-      </md-app-toolbar> -->
+       <!--<md-app-toolbar class="md-transparent" md-elevation="0">-->
+         <!--<md-button class="md-icon-button" @click="menuVisible = !menuVisible">-->
+          <!--<md-icon>menu</md-icon>-->
+         <!--</md-button>-->
+        <!--<span class="md-title">My Title</span>-->
+      <!--</md-app-toolbar> -->
 
-      <md-app-drawer md-permanent="full" class="md-scrollbar">
+      <md-app-drawer md-permanent="full" v-if="menuVisible" class="md-scrollbar">
         <md-toolbar class="md-transparent" md-elevation="0">
           Entries
         </md-toolbar>
@@ -29,9 +32,15 @@
       </md-app-drawer>
       
       <md-app-content>
+        <md-button class="md-icon-button md-primary" @click="menuVisible = !menuVisible">
+          <md-icon v-if="menuVisible">chevron_left</md-icon>
+          <md-icon v-else>chevron_right</md-icon>
+        </md-button>
+
+
         <div class="post-content">
           <h1 v-html="posts[curr_index-1].title"></h1>
-          <span v-html="posts[curr_index-1]. body"></span>
+          <span v-html="posts[curr_index-1].body"></span>
         </div>
        
       </md-app-content>
@@ -49,7 +58,8 @@ export default {
   data() {
     return {
       curr_index: 0,
-      posts
+      posts,
+      menuVisible: true
     }
   },
 
@@ -79,6 +89,8 @@ h1 {
   margin: 0 auto;
 }
 
+span {
+  text-indent: 30px;
+}
+
 </style>
-
-
