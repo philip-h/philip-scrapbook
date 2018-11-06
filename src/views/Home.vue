@@ -1,6 +1,9 @@
 <template>
   <div class="about">
-    <img :src="me" alt="Young Adult with Sunglasses, a bowtie and suspenders">
+    <div class="img-container">
+      <img :src="me" alt="Young Adult with Sunglasses, a bowtie and suspenders">
+    </div>
+    
     <section>
       <p>
         Hi and welcome to my online scrapbook! My name is Philip Habib and yes, that is me! I am a
@@ -54,9 +57,12 @@ export default {
   align-self: center;
 }
 
-.about > img {
+.about > .img-container {
   flex-shrink: 0;
   align-self: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 4px;
+  overflow: hidden;
 }
 </style>
 
