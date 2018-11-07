@@ -41,16 +41,23 @@
         <div class="post-content">
           <h1 v-html="'Critical Analysis '+ curr_index + ': ' + posts[curr_index-1].title"></h1>
           <!-- Conditional Renders Based on Post Type -->
-          <figure class="img-container" v-if="posts[curr_index-1].renderImg">
+          <!--post with an image-->
+          <figure class="container" v-if="posts[curr_index-1].renderImg">
             <img :src="require('../assets/'+posts[curr_index-1].renderImg)" :alt="posts[curr_index-1].renderImgAlt">
             <figcaption style="text-align: center" v-html="posts[curr_index-1].renderImgAlt"></figcaption>
           </figure>
+          <!--post with a video-->
           <a v-if="posts[curr_index-1].renderVideo" :href="posts[curr_index-1].renderVideo" target="_blank">
             <md-button class="md-primary md-raised">watch the video</md-button>
           </a>
+          <!--post with a poem-->
+          <div class="container" v-if="posts[curr_index-1].renderPoem">
+            <blockquote v-html="posts[curr_index-1].renderPoem"></blockquote>
+          </div>
+
           <span v-html="posts[curr_index-1].body"></span>
         </div>
-       
+               
       </md-app-content>
        
       
@@ -102,7 +109,7 @@ span {
   text-indent: 30px;
 }
 
-.img-container {
+.container {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 4px;
   overflow: hidden;
